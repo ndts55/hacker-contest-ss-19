@@ -20,7 +20,7 @@
 
     invoke-direct {p0}, Landroid/support/v7/app/c;-><init>()V
 
-    const v0, 0x38328d
+    const v0, 0x1
 
     iput v0, p0, Lde/usd/danielh/challenge/feature/Challenge_5;->j:I
 
