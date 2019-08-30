@@ -92,7 +92,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const/16 p1, 0x8
+    const/16 p1, 0x0
 
     invoke-virtual {v1, p1}, Landroid/widget/Button;->setVisibility(I)V
 
