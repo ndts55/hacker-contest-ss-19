@@ -1,0 +1,59 @@
+c1: usd{6d5589f2953b339a91d04ea9e5518a9f}
+noticed call to Log.w in Overview$1.smali
+    invoke-static {v0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+checked out log when clicking 'Challenge 1' button and saw first flag
+
+c2: usd{e42273031a465b76035145358729da08}
+noticed that input was compared to expected input
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_4
+changed check for false to
+    if-nez p1, :cond_4
+changed command which outputs "This is a valid licence!" from
+    invoke-static {p0, p1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+to
+    invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+which then shows the flag in a toast when input is something like usd{12345678901234567890123456789009}.
+
+c3: usd{acc610as40b031s2s907e001eeab20b3}
+change visibility int from 0x8 to 0x0
+    const/16 p1, 0x0
+
+    invoke-virtual {v1, p1}, Landroid/widget/Button;->setVisibility(I)V
+
+click Challenge 3 button
+take screenshot and zoom in because otherwise its not legible.
+
+c4: usd{}
+
+c5: usd{879829f2eadcf14190073e13ae3fc54b}
+looked for string "more times" in Challenge_5.smali
+noticed field k was being used to create output string
+    iget v2, p0, Lde/usd/danielh/challenge/feature/Challenge_5;->k:I
+saw that k was initialized to v0 in constructor
+    iput v0, p0, Lde/usd/danielh/challenge/feature/Challenge_5;->k:I
+changed v0 to 0x1
+repackaged, installed modified application, clicked once to see flag
+
+c6: usd{}
+
+
+
+
+
+invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+
+    return-void
+
+
+    const-string p1, "USD"
+    invoke-static {p1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    return-void
+
